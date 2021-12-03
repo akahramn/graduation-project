@@ -2,9 +2,9 @@ const mongoose = require('mongoose')
 
 
 const StudentSchema = new mongoose.Schema({
-    name: { type: String },
-    lastname: { type: String },
-    studentNo: { type: String },
+    name: { type: String, required: true },
+    lastname: { type: String, required: true },
+    studentNo: { type: String, required: true },
     image: { type: String }  
 
 })
