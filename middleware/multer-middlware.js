@@ -1,22 +1,21 @@
 const multer = require('multer')
 
 
-function fileUpload(req, res, next) {
-    var storage = multer.diskStorage({
-        destination: function (req, file, cb) {
-            cb(null, '/mnt/c/Users/akahr/Desktop/workspace/graduation-project/public/img')
+
+    console.log('Fonksiyona girdi')
+    const storage = multer.diskStorage({
+        destination: (req, file, cb) => {
+            cb(null, './img')
         },
-        filename: function (req, file, cb) {
-            cb(null, 'Abdullah')
+        filename: (req, file, cb) => {
+            cb(null, `${req.params.studentId}`)
         }
     })
+    console.log('storage oluşturuldu')
     
-    const upload = multer({storage: storage});
-    upload.single('img')
-
-    next()
+    var upload = multer({storage: storage});    
     
-}
 
 
-module.exports = fileUpload
+
+module.exports = upload.single('imageupload')

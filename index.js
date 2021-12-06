@@ -7,7 +7,7 @@ const fileUpload = require('express-fileupload');
 const app = express()
 const port = process.env.PORT || 3000
 
-
+app.set('view engine', 'pug')
 app.use(bodyParser.json())
 app.use(fileUpload())
 

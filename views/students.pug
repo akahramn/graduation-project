@@ -1,0 +1,12 @@
+extends layout 
+block content
+
+        h2 Students 
+         
+
+        ol
+            each student in students 
+                li  
+                    a(href=`http://localhost:3000/api/students/${student.id}`) #{student.name} 
+
+        h3 #{students.length} students take this class            

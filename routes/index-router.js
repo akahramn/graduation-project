@@ -13,6 +13,6 @@ router.use(function timeLog(req, res, next) {
 });
 
 router.use('/instructor', instructorRouter)
-router.use('/student', studentRouter)
+router.use('/students', studentRouter)
 
 module.exports = router
