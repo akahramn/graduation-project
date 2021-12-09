@@ -8,6 +8,7 @@ const input = require('../img')
 //const input = document.getElementById('myImage')
 
 Promise.all([
+    faceapi.nets.ssdMobilenetv1.loadFromDisk('/mnt/c/Users/akahr/Desktop/workspace/graduation-project/public/models/ssd_mobilenetv1/ssd_mobilenetv1_model-weights_manifest.json'),
     faceapi.nets.tinyFaceDetector.loadFromDisk('/mnt/c/Users/akahr/Desktop/workspace/graduation-project/public/models/tiny_face_detector/tiny_face_detector_model-weights_manifest.json'),
     faceapi.nets.faceLandmark68Net.loadFromDisk('/mnt/c/Users/akahr/Desktop/workspace/graduation-project/public/models/face_landmark_68/face_landmark_68_model-weights_manifest.json'),
     faceapi.nets.faceRecognitionNet.loadFromDisk('/mnt/c/Users/akahr/Desktop/workspace/graduation-project/public/models/face_recognition/face_recognition_model-weights_manifest.json')
