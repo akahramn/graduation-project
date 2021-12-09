@@ -10,7 +10,6 @@ const fs = require('fs')
         destination: async (req, file, cb) => {
             console.log(req.params.studentId)
             const student = await StudentService.findBy('_id', req.params.studentId)
-            console.log(`STUDENT = ${student}`)
             const dir = `./public/labeled-images/${student[0].name} ${student[0].lastname}-${student[0].studentNo}`
             fs.exists(dir, exist => {
                 if(!exist) {

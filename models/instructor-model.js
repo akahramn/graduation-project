@@ -1,10 +1,9 @@
-const { Mongoose } = require('mongoose')
+const mongoose = require('mongoose')
 
-require('mongoose')
 
-const InstructorSchema = new Mongoose.Schema({
+const InstructorSchema = new mongoose.Schema({
     name: { type: String },
     lastname: { type: String }
 })
 
-module.exports = new Mongoose.model('Instructor', InstructorSchema)
+module.exports = mongoose.model('Instructor', InstructorSchema)
