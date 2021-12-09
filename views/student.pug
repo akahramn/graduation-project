@@ -5,6 +5,7 @@ block content
         p Last Name = #{student[0].lastname}
         p Student No = #{student[0].studentNo}
 
-        form(method='post', action=":studentId/upload", enctype='multipart/form-data')
+        form(method='post', action=`${student[0]._id}/upload`, enctype='multipart/form-data')
+            h3 Upload Image
             input(type='file', name='myImage' )
             input(type='submit', name='uploadimage', value='Upload Image')

@@ -15,16 +15,11 @@ router.get('/', async (req, res) => {
 router.post('/register', async (req, res) => {
 
     const student = await StudentService.save(req.body)
-    fs.mkdir(`./public/labeled-images/${student[0].name} ${student[0].lastname}-${student[0].studentNo} `, (err) => {
-        if (err) {
-            return console.error(err);
-        }
-    });
-
     res.json({
         student
     })
 })
+
 //student page
 router.get('/:studentId', async (req, res) => {
     const student = await StudentService.findBy("_id", req.params.studentId)
@@ -42,6 +37,5 @@ router.post('/:studentId/upload', (req, res) => {
          }
      })
 })
-
 
 module.exports = router
