@@ -5,7 +5,7 @@ const fs = require('fs')
 
 
 
-    console.log('Fonksiyona girdi')
+    
     const storage = multer.diskStorage({
         destination: async (req, file, cb) => {
             console.log(req.params.studentId)
@@ -23,13 +23,12 @@ const fs = require('fs')
             cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
         }    
     })
-    console.log('storage oluşturuldu')
+    
     
     const upload = multer({
         storage: storage
     }).single('myImage')    
     
-    console.log('image upload')
 
 
 

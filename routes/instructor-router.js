@@ -1,5 +1,6 @@
 const express = require('express')
 const InstructorService = require('../services/instructor-service')
+const NodeWebcam = require('node-webcam')
 
 const router = express.Router()
 
@@ -16,7 +17,16 @@ router.post('/register', async (req, res) => {
     }) 
 })
 //Instructor take-attendance
+router.get('/take-attendance', (req, res) => {
+    const opts = {
+        callbackReturn: "location"
+    }
+    NodeWebcam.capture( "./img", opts, ( err, data ) => {
+            console.log(data)
+           res.render('attendance', data)
+    });
 
+})
 
 
 module.exports = router

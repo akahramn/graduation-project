@@ -5,7 +5,13 @@ const { Canvas, Image, ImageData } = canvas
 
 faceapi.env.monkeyPatch({ Canvas, Image, ImageData })
 const input = require('../img') 
-//const input = document.getElementById('myImage')
+const input = document.getElementById('myImage')
+const NodeWebcam = require('node-webcam')
+
+const opts = {
+    callbackReturn: "location"
+}
+
 
 Promise.all([
     faceapi.nets.ssdMobilenetv1.loadFromDisk('/mnt/c/Users/akahr/Desktop/workspace/graduation-project/public/models/ssd_mobilenetv1/ssd_mobilenetv1_model-weights_manifest.json'),
@@ -16,10 +22,13 @@ Promise.all([
 
 
 async function start() {
-    console.log('HELLO')
+    NodeWebcam.capture( "test_picture", opts, function( err, data ) {
+        
+    });
     const detection = await faceapi.detectSingleFace(input)
     const detectionWithLandmarks = await detection.withFaceLandmarks()
     const result = await detectionWithLandmarks.withFaceDescriptor()
+
 
     console.log(result)
 }
